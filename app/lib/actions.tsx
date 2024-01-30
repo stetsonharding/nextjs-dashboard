@@ -52,3 +52,10 @@ await sql`
 revalidatePath('/dashboard/invoices');
 redirect('/dashboard/invoices');
 }
+
+
+//Delete invoice
+export async function deleteInvoice(id: string) {
+  await sql`DELETE FROM invoices WHERE id = ${id}`;
+  revalidatePath('/dashboard/invoices');
+}
